@@ -190,10 +190,11 @@ function processDuplicateFree(list, callback) {
 */
 function getFullNames(runners) {
   /* CODE HERE */
+  let newArr = [];
   runners.forEach((name) => {
-    return name.firstname + " ," + name.lastname;
-  })
-  return runners;
+    newArr.push(name.last_name + ", " + name.first_name);
+  });
+  return newArr;
 }
 
 /**
