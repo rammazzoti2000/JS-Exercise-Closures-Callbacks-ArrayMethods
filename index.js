@@ -139,15 +139,9 @@ function processProduct(num1, num2, callback) {
 */
 function processContains(item, list, callback) {
   /* CODE HERE */
-  const findItem = function(list) {
-    for(let i in list) {
-      list[i] === item ? true : false;
-    }
-  }
-  return callback(findItem);
-    
-  
+  return callback(list.includes(item));
 }
+  
 
 /**
  * ### Challenge `processDuplicateFree`
@@ -168,8 +162,12 @@ function processContains(item, list, callback) {
  * [2] Invoking `processDuplicateFree` passing `[1,1,2,2,3]` and `(arr) => arr.length`,
  * should return 3.
 */
-function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */) {
+function processDuplicateFree(list, callback) {
   /* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */
+  //let dupes = [...new Set(list)];
+  let dupes = (lists) => list.filter((v, i) => list.indexOf(v) === i);  
+  return callback(dupes(list));
+
 }
 
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
@@ -190,8 +188,12 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
  * @returns an array with all the runners' full names in the following format: "Smith, John".
  * The full names appear in the array in the same order the runners appear in the `runners` array.
 */
-function getFullNames(/* CODE HERE */) {
+function getFullNames(runners) {
   /* CODE HERE */
+  runners.forEach((name) => {
+    return name.firstname + " ," + name.lastname;
+  })
+  return runners;
 }
 
 /**
